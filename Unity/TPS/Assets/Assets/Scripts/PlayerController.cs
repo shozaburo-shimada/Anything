@@ -51,13 +51,13 @@ public class PlayerController : MonoBehaviour {
         }
         cameraRotate *= Quaternion.Euler(xRotate, 0f, 0f);
 
-        var tempRot = (cameraRotate.eulerAngles.x > 180) ? cameraRotate.eulerAngles.x - 180 : cameraRotate.eulerAngles.x;
-        var resultYRot = Mathf.Clamp(Mathf.DeltaAngle(initCameraRot.eulerAngles.x, tempRot), -cameraRotateLimit, cameraRotateLimit);
-        resultYRot = (resultYRot < 0) ? resultYRot + 180 : resultYRot;
+        //var tempRot = (cameraRotate.eulerAngles.x > 180) ? cameraRotate.eulerAngles.x - 180 : cameraRotate.eulerAngles.x;
+        //var resultYRot = Mathf.Clamp(Mathf.DeltaAngle(initCameraRot.eulerAngles.x, tempRot), -cameraRotateLimit, cameraRotateLimit);
+        //resultYRot = (resultYRot < 0) ? resultYRot + 180 : resultYRot;
         //Limit
         //var resultYRot = Mathf.Clamp(Mathf.DeltaAngle(initCameraRot.eulerAngles.x, cameraRotate.eulerAngles.x), -cameraRotateLimit, cameraRotateLimit);
-        Debug.Log("initCameraRot: " + initCameraRot.eulerAngles.x + ", temp: " + tempRot + ", resultYRot: " + resultYRot);
-        cameraRotate = Quaternion.Euler(resultYRot, cameraRotate.eulerAngles.y, cameraRotate.eulerAngles.z);
+        //Debug.Log("initCameraRot: " + initCameraRot.eulerAngles.x + ", temp: " + tempRot + ", resultYRot: " + resultYRot);
+        //cameraRotate = Quaternion.Euler(resultYRot, cameraRotate.eulerAngles.y, cameraRotate.eulerAngles.z);
 
         myCamera.localRotation = Quaternion.Slerp(myCamera.localRotation, cameraRotate, rotateSpeed * Time.deltaTime);
     }
