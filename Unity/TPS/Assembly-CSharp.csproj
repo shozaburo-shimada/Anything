@@ -57,7 +57,13 @@
      <Compile Include="Assets\Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Assets\Scripts\test.cs" />
      <Compile Include="Assets\Assets\Scripts\ThirdPersonCamera.cs" />
+     <Compile Include="Assets\Assets\Scripts\TrionCube.cs" />
      <Compile Include="Assets\Assets\Scripts\UnityChanDemo1.cs" />
+     <Compile Include="Assets\Particle Attractor by Moonflower Carnivore\Scripts\particleAttractorLinear.cs" />
+     <Compile Include="Assets\Particle Attractor by Moonflower Carnivore\Scripts\particleAttractorMove.cs" />
+     <Compile Include="Assets\Particle Attractor by Moonflower Carnivore\Scripts\particleAttractorSelf.cs" />
+     <Compile Include="Assets\Particle Attractor by Moonflower Carnivore\Scripts\particleAttractorSpherical.cs" />
+     <Compile Include="Assets\Particle Attractor by Moonflower Carnivore\Scripts\rotation.cs" />
      <Compile Include="Assets\UnityChan\Scripts\AutoBlink.cs" />
      <Compile Include="Assets\UnityChan\Scripts\CameraController.cs" />
      <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
@@ -72,6 +78,7 @@
      <Compile Include="Assets\UnityChan\SplashScreen\Scripts\SplashScreen.cs" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
+     <None Include="Assets\Particle Attractor by Moonflower Carnivore\Shaders\Particles Additive Intensify.shader" />
      <None Include="Assets\UnityChan\Voice\unity-chan_voice_list.txt" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye_blend.shader" />
@@ -82,6 +89,7 @@
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eyelash_blend.shader" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada.shader" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hada_blend.shader" />
+     <None Include="Assets\Particle Attractor by Moonflower Carnivore\Particle Attractor documentation.txt" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Shozaburo/Documents/git/Anything/Unity/TPS/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
@@ -319,6 +327,10 @@
  <Reference Include="Boo.Lang">
  <HintPath>C:/Program Files/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unity/Boo.Lang.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{6F489CAD-0F78-897C-F7AC-00B06D0E94B3}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

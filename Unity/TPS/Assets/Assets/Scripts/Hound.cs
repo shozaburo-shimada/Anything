@@ -5,16 +5,24 @@ using UnityEngine;
 public class Hound : MonoBehaviour {
 
     public GameObject target;
-    public float rotSpeed = 180.0f; //追尾性能
+    //public float rotSpeed = 180.0f; //追尾性能
+    private float rotSpeed;
+    public float maxRotSpeed = 180.0f;
+    public float initRotSpeed = 10.0f;
+    public float focusSpeed = 5.0f;
     public float bulletSpeed = 6.0f; //弾速
+    private float etime = 0;
 
 	// Use this for initialization
 	void Start () {
-		
+        rotSpeed = initRotSpeed;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        etime += Time.deltaTime;
+        rotSpeed = Mathf.Pow(2, focusSpeed*etime);
+
         //targetと弾とのベクトル
         Vector3 vecTarget = target.transform.position - transform.position;
         //弾の正面ベクトル
