@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hound : MonoBehaviour {
+public class HoundTest : MonoBehaviour {
 
     public GameObject target;
     //public float rotSpeed = 180.0f; //追尾性能

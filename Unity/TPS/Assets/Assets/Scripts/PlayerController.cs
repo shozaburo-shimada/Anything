@@ -12,19 +12,29 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private float rotateSpeed = 2.0f;
     [SerializeField] private bool cameraRotForward = true;
     [SerializeField] private float cameraRotateLimit = 30f;
+    [SerializeField] private float moveSpeed = 5.0f;
+    [SerializeField] private float thrust = 100.0f;
+    public GameObject Weapon;
     private Quaternion initCameraRot;
     private Quaternion charaRotate;
     private Quaternion cameraRotate;
+    private bool isGround;
+    private Vector3 velocity;
+    private Animator animator;
+    private Rigidbody rb;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         myCamera = transform.Find("CamPos").transform;
 
         charaRotate = transform.localRotation;
 
         initCameraRot = myCamera.localRotation;
         cameraRotate = myCamera.localRotation;
+
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
 		
 	}
 	
@@ -33,6 +43,7 @@ public class PlayerController : MonoBehaviour {
         RotateChara();
         RotateCamera();
         MoveChara();
+        Shoot();
 
 	}
 
@@ -63,6 +74,76 @@ public class PlayerController : MonoBehaviour {
     }
 
     void MoveChara() {
+        if (isGround) {
 
+            //Move
+            velocity = Vector3.zero;
+
+            if (Input.GetKey(KeyCode.W)) {
+                //transform.position += transform.forward * 0.01f;
+                velocity += transform.forward;
+            }
+
+            if (Input.GetKey(KeyCode.A)) {
+                //transform.position += transform.right * -0.01f;
+                velocity -= transform.right;
+            }
+
+            if (Input.GetKey(KeyCode.S)) {
+                //transform.position += transform.right * -0.01f;
+                velocity -= transform.forward;
+            }
+
+            if (Input.GetKey(KeyCode.D)) {
+                //transform.position += transform.right * 0.01f;
+                velocity += transform.right;
+            }
+
+            velocity = velocity.normalized * moveSpeed * Time.deltaTime;
+
+            if (velocity.magnitude > 0) {
+                animator.SetBool("is_running", true);
+                transform.position += velocity;
+            } else {
+                animator.SetBool("is_running", false);
+            }
+
+            //Jump
+            if (Input.GetKey(KeyCode.Space)) {
+                rb.AddForce(new Vector3(0, thrust, 0));
+                isGround = false;
+                //Debug.Log("ground:false");
+                animator.SetBool("is_jumping", true);
+            } else {
+                animator.SetBool("is_jumping", false);
+            }
+        }
+    }
+
+    void Shoot() {
+        //Left Click
+        if (Input.GetMouseButtonDown(0)) {
+
+        }
+
+        //Right Click
+        if (Input.GetMouseButtonDown(1)) {
+            /*
+            switch (Weapon.Name) {
+                case "Hound":
+
+                    break;
+                default:
+                    Debug.Log("Player has no weapon");
+                    break;
+            }
+            */
+
+        }
+    }
+
+    private void OnCollisionStay(Collision collision) {
+        isGround = true;
+        //Debug.Log("ground:true");
     }
 }
