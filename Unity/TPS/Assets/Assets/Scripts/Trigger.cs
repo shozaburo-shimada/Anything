@@ -92,6 +92,50 @@ public class Pistol : GunnerSkill {
 
 }
 
+
+// --------------------------------
+
+[System.Serializable]
+public class Lightning : SniperSkill {
+
+
+}
+
+[System.Serializable]
+public class  Eaglet: SniperSkill {
+
+
+}
+
+[System.Serializable]
+public class  Ibis: SniperSkill {
+
+
+}
+
+
+// --------------------------------
+
+[System.Serializable]
+public class Kogetsu : BladeSkill {
+
+
+}
+
+[System.Serializable]
+public class Scorpion : BladeSkill {
+
+
+}
+
+[System.Serializable]
+public class Raygust : BladeSkill {
+
+
+}
+
+
+
 // ---------------------------------
 
 public enum TypeOfBullets {
